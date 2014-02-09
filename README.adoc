@@ -1,0 +1,12 @@
+== Retrive issues
+:exampleurl: http://sbuild.tototec.de/sbuild
+
+First, you neet to retrieve the min and max issue nr.
+
+[source,bash,subs="attributes"]
+----
+for i in {1..{176}; do
+  wget -O ${i}.xml "{exampleurl}/issues/${i}.xml?include=journals,relations,attachments"; 
+done
+----
+
