@@ -1,13 +1,17 @@
 = Redmine to Github Migrator
+:author: Tobias Roeser
+:revdate: 2014-02-10
 :exampleurl: http://sbuild.tototec.de/sbuild
+:toc:
+:toc-placement: preamble
 
 This project was written in a half day to migrate the existing tickets of the http://sbuild.tototec.de/sbuild[SBuild Build tool] to Github.
 
-The other projects I found in the web were not able to migrate issue comments and were written in Python. So, I decided to quickly hack together a small Scala application. Thank's to the great http://github-api.kohsuke.org/[Github API for Java] from @kohsuke, this was fairly easy.
+The other projects I found in the web were not able to migrate issue comments and were written in Python. So, I decided to quickly hack together a small Scala application. Thank's to the great http://github-api.kohsuke.org/[Github API for Java] from https://github.com/kohsuke[Kohsuke Kawaguchi], this was fairly easy.
 
-Please note, that this project was only created for the purpose of that one migration. Later, if I decide later to migrate another project, I will probably improve it further.
+Please note, that this project was only created for the purpose of that one migration. Later, if I will decide to migrate another project, I will probably improve it further.
 
-Please keep that in mind and review it, before using for you own purpose. That said, I would be glad, to receive pull requests to broaden the scope of this project.
+Please keep that in mind and review it, before you use it for your own purposes. That said, I would be glad, to receive pull requests to broaden the scope and the quality of this project.
 
 == License
 
@@ -39,12 +43,12 @@ bash$ java -cp $CLASSPATH de.tobiasroeser.redminetogithub.Main --help
 Aufruf: <main class> [Optionen]
 
 Optionen:
-  --github-password PASSWORD                     
-  --github-repo REPO                             
-  --github-user LOGIN                            
-  --help,-h                                      
-  --redmine-issues-dir FILE                      
-  --redmine-url URL                              
+  --github-password PASSWORD
+  --github-repo REPO
+  --github-user LOGIN
+  --help,-h
+  --redmine-issues-dir FILE
+  --redmine-url URL
   --user-mapping redmine-user-id=github-user-id 
 ----
 
