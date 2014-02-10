@@ -1,7 +1,23 @@
-== Retrive issues
+= Redmine to Github Migrator
 :exampleurl: http://sbuild.tototec.de/sbuild
 
-First, you neet to retrieve the min and max issue nr.
+This project was written in a half day to migrate the existing tickets of the http://sbuild.tototec.de/sbuild[SBuild Build tool] to Github.
+
+The other projects I found in the web were not able to migrate issue comments and were written in Python. So, I decided to quickly hack together a small Scala application. Thank's to the great http://github-api.kohsuke.org/[Github API for Java] from @kohsuke, this was fairly easy.
+
+Please note, that this project was only created for the purpose of that one migration. Later, if I decide later to migrate another project, I will probably improve it further.
+
+Please keep that in mind and review it, before using for you own purpose. That said, I would be glad, to receive pull requests to broaden the scope of this project.
+
+== License
+
+Apache License Version 2.0
+
+== Preparation: Retrive Redmine issues as XML
+
+First, you neet to retrieve the min and max issue nr. If you have them, you can fetch the issues as XML over Redmines REST API.
+
+Here is a small bash commandline, to fetch issue 1 to 176.
 
 [source,bash,subs="attributes"]
 ----
@@ -10,3 +26,36 @@ for i in {1..{176}; do
 done
 ----
 
+You can also customize the link:SBuild.scala[SBuild buildfile] and use the `fetch-issues` target.
+
+----
+sbuild fetch-issues
+----
+
+== Using the tool
+
+----
+bash$ java -cp $CLASSPATH de.tobiasroeser.redminetogithub.Main --help
+Aufruf: <main class> [Optionen]
+
+Optionen:
+  --github-password PASSWORD                     
+  --github-repo REPO                             
+  --github-user LOGIN                            
+  --help,-h                                      
+  --redmine-issues-dir FILE                      
+  --redmine-url URL                              
+  --user-mapping redmine-user-id=github-user-id 
+----
+
+== Migrating and importin tickets into Githzb
+
+To actually migrate the repo, see the invocation in the link:SBuild.scala[SBuild buildfile] in target `import-sbuild-tickets`.
+
+== Further notes
+
+Remember, you have only on shot, to import the tickets into your project.
+
+I recommend to you, to first try the migration with a test project, which you can delete afterwards. This process can be repeated as of the as needed, even with the same project name.
+
+If your project had gapless issue numbers starting from 1 and you have no issue and pull requests in your target project on Github, all issues will keep their number. :-)
