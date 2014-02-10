@@ -52,7 +52,7 @@ Optionen:
   --user-mapping redmine-user-id=github-user-id 
 ----
 
-== Migrating and importin tickets into Githzb
+== Migrating and importing tickets into Github
 
 To actually migrate the repo, see the invocation in the link:SBuild.scala[SBuild buildfile] in target `import-sbuild-tickets`.
 
@@ -60,6 +60,8 @@ To actually migrate the repo, see the invocation in the link:SBuild.scala[SBuild
 
 Remember, you have only on shot, to import the tickets into your project.
 
-I recommend to you, to first try the migration with a test project, which you can delete afterwards. This process can be repeated as of the as needed, even with the same project name.
+I recommend to you, to first try the migration with a test project, which you can delete afterwards. This process can be repeated as often as needed, even with the same project name.
 
-If your project had gapless issue numbers starting from 1 and you have no issue and pull requests in your target project on Github, all issues will keep their number. :-)
+If your project has gapless issue numbers starting from 1 and you have no issue and pull requests in your target project on Github, all issues will keep their number as is. :-)
+
+You can also https://twitter.com/TobiasRoeser[contact me on Twitter].

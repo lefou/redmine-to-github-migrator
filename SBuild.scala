@@ -55,17 +55,12 @@ class SBuild(implicit _project: Project) {
   }
 
   Target("phony:import-sbuild-tickets") dependsOn "compile" ~ compileCp exec {
-
-    print("lefous github password: ")
-    val pw = System.console.readPassword()
-
     addons.support.ForkSupport.runJavaAndWait(
       classpath = compileCp.files ++ Seq(Path("target/classes")),
       arguments = Array(
         "de.tobiasroeser.redminetogithub.Main",
         "--redmine-issues-dir", issueDir.getPath,
         "--github-user", "lefou",
-        "--github-password", pw.toString,
         "--github-repo", githubRepo,
         "--redmine-url", redmineUrl,
         "--user-mapping", "3=lefou",
