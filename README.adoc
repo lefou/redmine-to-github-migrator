@@ -15,7 +15,7 @@ Please keep that in mind and review it, before you use it for your own purposes.
 
 == License
 
-Apache License Version 2.0
+http://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
 
 == Preparation: Retrive Redmine issues as XML
 
